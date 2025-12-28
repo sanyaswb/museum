@@ -1,0 +1,8 @@
+.grid {
+  @include page-grid;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: $content-max-width;
+}
