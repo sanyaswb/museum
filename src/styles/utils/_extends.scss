@@ -1,4 +1,140 @@
+%font-montserrat {
+  font-family: Montserrat, Roboto, sans-serif;
+}
+
+%font-ibm-plex-sans {
+  font-family: IBMPlexSans, Roboto, sans-serif;
+}
+
+%def-1 {
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+%def-2 {
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
 %h1 {
-  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: $black-main;
+
+  @extend %font-montserrat, %def-1;
+
+  @include on-tablet {
+    font-size: 54px;
+  }
+
+  @include on-desktop {
+    font-size: 72 px;
+  }
+}
+
+%h2 {
+  font-weight: 700;
+  font-size: 36px;
+  color: $font-color-primary;
+
+  @extend %font-montserrat, %def-1;
+
+  @include on-tablet {
+    font-size: 48px;
+  }
+}
+
+%h3 {
   font-weight: 400;
+  font-size: 28px;
+  color: $font-color-primary;
+
+  @extend %font-montserrat, %def-1;
+
+  @include on-tablet {
+    font-size: 36px;
+  }
+}
+
+%h4 {
+  font-weight: 500;
+  font-size: 16px;
+  color: $font-color-subtitle;
+
+  @extend %font-ibm-plex-sans, %def-1;
+
+  @include on-tablet {
+    font-size: 14px;
+  }
+}
+
+%font-menu-nav {
+  @extend %h4;
+
+  color: $white-main;
+
+  @include on-tablet {
+    font-size: 16px;
+  }
+}
+
+%font-description {
+  font-weight: 300;
+  font-size: 16px;
+
+  @extend %font-ibm-plex-sans, %def-2;
+}
+
+%font-text-primary {
+  font-weight: 400px;
+  font-size: 14px;
+
+  @extend %font-ibm-plex-sans, %def-2;
+}
+
+%font-text-secondary {
+  font-weight: 600;
+  font-size: 14px;
+
+  @extend %font-ibm-plex-sans, %def-2;
+}
+
+%font-button {
+  @extend %h4;
+
+  color: $font-color-primary;
+
+  @include on-tablet {
+    font-size: 16px;
+  }
+}
+
+%font-date {
+  font-weight: 700;
+  font-size: 16px;
+  color: $font-color-secondary;
+
+  @extend %font-ibm-plex-sans, %def-2;
+
+  @include on-tablet {
+    font-size: 14px;
+  }
+}
+
+%font-placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  color: $font-color-button;
+
+  @extend %font-montserrat, %def-1;
+}
+
+%font-copyright {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 141%;
+  letter-spacing: 0%;
+  color: $font-color-primary;
+
+  @extend %font-ibm-plex-sans;
 }

@@ -1,6 +1,147 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use 'sass:meta';
+@use 'sass:string';
+@use 'sass:list';
+
+@mixin hover($property, $value: null, $child: null) {
+  $separator: ' ';
+
+  @if $child and string.index($child, ':') == 1 {
+    $separator: '';
   }
+
+  @if $child {
+    &#{$separator}#{$child} {
+      @if meta.type-of($property) == 'map' {
+        $transitions: ();
+
+        @each $prop, $val in $property {
+          $transitions: list.append($transitions, #{$prop} $my-duration, comma);
+        }
+
+        transition: $transitions;
+      } @else {
+        transition: #{$property} $my-duration;
+      }
+    }
+  } @else {
+    @if meta.type-of($property) == 'map' {
+      $transitions: ();
+
+      @each $prop, $val in $property {
+        $transitions: list.append($transitions, #{$prop} $my-duration, comma);
+      }
+
+      transition: $transitions;
+    } @else {
+      transition: #{$property} $my-duration;
+    }
+  }
+
+  $sel-hover: '&:hover';
+  $sel-active: '&:active';
+
+  @if $child {
+    $sel-hover: '&:hover#{$separator}#{$child}';
+    $sel-active: '&:active#{$separator}#{$child}';
+  }
+
+  @media (hover: hover) {
+    #{$sel-hover} {
+      @if meta.type-of($property) == 'map' {
+        @each $prop, $val in $property {
+          #{$prop}: $val;
+        }
+      } @else {
+        #{$property}: $value;
+      }
+    }
+  }
+
+  #{$sel-active} {
+    @if meta.type-of($property) == 'map' {
+      @each $prop, $val in $property {
+        #{$prop}: $val;
+      }
+    } @else {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin svg-icon-theme($name, $color, $hover, $duration: $my-duration) {
+  &.svg-icon-#{$name} {
+    color: $color;
+    transition: color $duration ease;
+
+    &:hover,
+    &:focus {
+      color: $hover;
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --grid-columns: 2;
+
+  display: grid;
+  column-gap: $min-column-gap;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+
+  @include on-tablet {
+    --grid-columns: 6;
+
+    column-gap: $max-column-gap;
+  }
+
+  @include on-desktop {
+    --grid-columns: 12;
+  }
+}
+
+@mixin adaptive-padding($base: null, $tablet: null, $desktop: null) {
+  @if $base {
+    padding: $base;
+  } @else {
+    padding: 0 $def-inline-padding;
+  }
+
+  @if $tablet {
+    @include on-tablet {
+      padding: $tablet;
+    }
+  }
+
+  @if $desktop {
+    @include on-desktop {
+      padding: $desktop-s;
+    }
+  }
+}
+
+@mixin background-config(
+  $image: none,
+  $position: center,
+  $repeat: no-repeat,
+  $size: cover
+) {
+  background-image: $image;
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
 }
