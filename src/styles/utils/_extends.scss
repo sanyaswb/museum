@@ -8,23 +8,25 @@
 
 %def-1 {
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 %def-2 {
   line-height: 150%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
 }
 
 %h1 {
   font-weight: 700;
   font-size: 45px;
   color: $black-main;
+  text-transform: uppercase;
 
   @extend %font-montserrat, %def-1;
 
   @include on-tablet {
     font-size: 54px;
+    line-height: 120%;
   }
 
   @include on-desktop {
@@ -60,43 +62,13 @@
   font-weight: 500;
   font-size: 16px;
   color: $font-color-subtitle;
+  text-transform: uppercase;
 
   @extend %font-ibm-plex-sans, %def-1;
 
   @include on-tablet {
     font-size: 14px;
   }
-}
-
-%font-menu-nav {
-  @extend %h4;
-
-  color: $white-main;
-
-  @include on-tablet {
-    font-size: 16px;
-  }
-}
-
-%font-description {
-  font-weight: 300;
-  font-size: 16px;
-
-  @extend %font-ibm-plex-sans, %def-2;
-}
-
-%font-text-primary {
-  font-weight: 400px;
-  font-size: 14px;
-
-  @extend %font-ibm-plex-sans, %def-2;
-}
-
-%font-text-secondary {
-  font-weight: 600;
-  font-size: 14px;
-
-  @extend %font-ibm-plex-sans, %def-2;
 }
 
 %font-button {
@@ -107,6 +79,41 @@
   @include on-tablet {
     font-size: 16px;
   }
+}
+
+%font-menu-nav {
+  @extend %h4;
+
+  text-transform: none;
+  color: $white-main;
+
+  @include on-tablet {
+    font-size: 16px;
+  }
+}
+
+%font-description {
+  font-weight: 300;
+  font-size: 16px;
+  color: $font-color-text;
+
+  @extend %font-ibm-plex-sans, %def-2;
+}
+
+%font-text-primary {
+  font-weight: 400;
+  font-size: 14px;
+  color: $font-color-primary;
+
+  @extend %font-ibm-plex-sans, %def-2;
+}
+
+%font-text-secondary {
+  font-weight: 600;
+  font-size: 14px;
+  color: $font-color-primary;
+
+  @extend %font-ibm-plex-sans, %def-2;
 }
 
 %font-date {
@@ -137,4 +144,12 @@
   color: $font-color-primary;
 
   @extend %font-ibm-plex-sans;
+}
+
+%font-vertical {
+  font-weight: 700;
+  font-size: 14px;
+  color: $font-color-subtitle;
+
+  @extend %font-ibm-plex-sans, %def-1;
 }

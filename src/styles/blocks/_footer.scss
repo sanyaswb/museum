@@ -1,0 +1,164 @@
+.footer {
+  grid-column: 3 / -3;
+
+  &__content {
+    @extend %font-text-primary;
+
+    & span {
+      @extend %font-text-secondary;
+    }
+  }
+
+  &__icons {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 62px;
+
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+
+    & .logo__icon {
+      height: 62px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 32px;
+    }
+  }
+
+  &__icon-link {
+    & svg {
+      fill: $black-main;
+      width: 24px;
+    }
+  }
+
+  &__schedule,
+  &__contacts {
+    & > :first-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__schedule {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 5;
+
+      margin-bottom: 87px;
+    }
+  }
+
+  &__contacts {
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+  }
+
+  &__divider {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 1px;
+    background-color: rgba($color: $bg-button-1, $alpha: 0.5);
+
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 8;
+      height: 260px;
+      width: 1px;
+      justify-self: center;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &--1 {
+      @include on-tablet {
+        grid-column: 2 / 4;
+      }
+
+      @include on-desktop {
+        grid-column: 8 / 10;
+      }
+    }
+
+    &--2 {
+      @include on-tablet {
+        grid-column: 4 / 6;
+      }
+
+      @include on-desktop {
+        grid-column: 10 / 12;
+      }
+    }
+  }
+
+  &__copyright {
+    grid-column: 1 / -1;
+    text-align: center;
+
+    margin-top: 80px;
+    margin-bottom: 128px;
+
+    @extend %font-copyright;
+
+    @include on-tablet {
+      margin-top: 120px;
+      margin-bottom: 35px;
+
+      & div {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+    }
+  }
+}

@@ -17,3 +17,4 @@ dist
 # builder
 convert-fonts.js
 import-fonts.js
+scss-generate.js

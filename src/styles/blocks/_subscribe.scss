@@ -1,0 +1,102 @@
+.subscribe {
+  position: relative;
+  grid-column: 1 / -1;
+
+  margin-bottom: 50px;
+
+  @include on-tablet {
+    margin-bottom: 51px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 48px;
+  }
+
+  &::after {
+    z-index: 0;
+    position: absolute;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: $black-main, $alpha: 0.75);
+  }
+
+  @include background-config(url(../images/bg-subscribe.jpg));
+
+  &__content {
+    z-index: 1;
+    grid-column: 2 / -2;
+
+    @include on-tablet {
+      grid-column: 4 / 11;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -9;
+    }
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @include adaptive-padding(88px 0, $tablet: 82px 0, $desktop: 163px 0);
+
+    align-items: center;
+    text-align: center;
+  }
+
+  &__title {
+    color: $white-main;
+
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  & p {
+    color: $white-main;
+    font-size: 18px;
+
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      margin-bottom: 64 px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 72px;
+    }
+
+    @extend %font-ibm-plex-sans, %def-2;
+  }
+
+  &__form {
+    display: flex;
+    width: 100%;
+
+    & input {
+      width: 100%;
+      background-color: $white-main;
+      padding-left: 24px;
+
+      @include on-tablet {
+        margin-right: 16px;
+      }
+
+      @include on-desktop {
+        margin-right: 30px;
+      }
+    }
+  }
+  &__button {
+    background-color: $bg-button-2;
+
+    &::before,
+    &::after {
+      background-color: $black-main;
+    }
+  }
+}

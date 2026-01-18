@@ -1,0 +1,171 @@
+.header {
+  grid-column: 1 / -1;
+
+  position: relative;
+  width: 100%;
+
+  &__button-menu {
+    z-index: 200;
+    grid-column: 2 / 3;
+
+    position: fixed;
+    margin-top: 27px;
+
+    @include on-tablet {
+      margin-top: 39px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 4;
+    }
+  }
+
+  &__logo {
+    grid-column: 2 / -2;
+
+    position: absolute;
+    display: grid;
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 8 / 11;
+    }
+
+    @include on-desktop {
+      grid-column: 13 / 16;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      place-self: center;
+      width: 55px;
+      height: 61px;
+      margin-top: 9px;
+
+      @include on-tablet {
+        height: 72px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  &__background {
+    z-index: -1;
+    grid-column: 1 / -1;
+
+    height: 300px;
+    width: 100%;
+    transform: scaleX(-1);
+    object-fit: cover;
+    object-position: center;
+
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 8 / -1;
+      height: 384px;
+
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 13 / -1;
+      height: 655px;
+      object-position: 40%;
+    }
+  }
+
+  &__content {
+    grid-column: 2 / -2;
+
+    @include on-tablet {
+      grid-column: 2 / 7;
+      grid-row: 1 / 2;
+
+      margin-top: 127px;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 12;
+      margin-top: 206px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      text-align: left;
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 89px;
+    }
+  }
+
+  &__button-link {
+    justify-self: center;
+    width: 100%;
+    height: 50px;
+    max-width: 280px;
+
+    @include on-tablet {
+      justify-self: start;
+      max-width: 270px;
+      height: 70px;
+    }
+
+    @include on-desktop {
+      justify-self: right;
+    }
+
+    & > :nth-child(1) {
+      width: 100%;
+      text-align: center;
+      align-content: center;
+      border: 1px solid $bg-button-1;
+
+      @extend %font-button;
+    }
+  }
+
+  &__button {
+    background-color: $bg-button-1;
+
+    &::after,
+    &::before {
+      background-color: $bg-button-3;
+    }
+  }
+
+  &__section-viewer {
+    padding: 15px 0;
+    display: none;
+    position: relative;
+
+    @include on-desktop {
+      z-index: 100;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      width: 55px;
+      height: 125.4px;
+      display: flex;
+      align-self: end;
+      justify-content: space-evenly;
+
+      &.is-fixed {
+        z-index: 100;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+      }
+    }
+  }
+}

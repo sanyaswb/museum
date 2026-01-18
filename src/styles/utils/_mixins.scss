@@ -96,21 +96,113 @@
   }
 }
 
-@mixin page-grid {
-  --grid-columns: 2;
-
+@mixin grid {
   display: grid;
-  column-gap: $min-column-gap;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  align-content: start;
+  gap: 0;
+
+  --padding-grid: 20px;
+  --column-grid: 130px;
+  --gap-grid: 20px;
+
+  grid-template-columns:
+    minmax(var(--padding-grid), var(--padding-grid))
+    minmax(var(--column-grid), 1fr)
+    minmax(var(--gap-grid), var(--gap-grid))
+    minmax(var(--column-grid), 1fr)
+    minmax(var(--padding-grid), var(--padding-grid));
 
   @include on-tablet {
-    --grid-columns: 6;
+    --padding-grid: 39px;
+    --gap-grid: 30px;
+    --column-grid: 90px;
 
-    column-gap: $max-column-gap;
+    grid-template-columns:
+      minmax(var(--padding-grid), 1fr)
+      repeat(
+        5,
+        minmax(var(--column-grid), 170px)
+          minmax(var(--gap-grid), var(--gap-grid))
+      )
+      minmax(var(--column-grid), 170px)
+      minmax(var(--padding-grid), 1fr);
   }
 
   @include on-desktop {
-    --grid-columns: 12;
+    --padding-grid: 55px;
+    --gap-grid: 30px;
+    --column-grid: 70px;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(var(--padding-grid), var(--padding-grid))
+      repeat(
+        11,
+        minmax(var(--column-grid), var(--column-grid))
+          minmax(var(--gap-grid), var(--gap-grid))
+      )
+      minmax(var(--column-grid), var(--column-grid))
+      minmax(var(--padding-grid), var(--padding-grid))
+      minmax(0, 1fr);
+  }
+}
+
+@mixin grid-page {
+  display: grid;
+  align-content: start;
+
+  --padding-grid-page: 20px;
+  --margin-grid-page: 1fr;
+
+  grid-template-columns:
+    minmax(0, var(--margin-grid-page))
+    minmax(var(--padding-grid-page), var(--padding-grid-page))
+    minmax(0, $content-max-width)
+    minmax(var(--padding-grid-page), var(--padding-grid-page))
+    minmax(0, var(--margin-grid-page));
+
+  @include on-tablet {
+    --padding-grid-page: 39px;
+  }
+
+  @include on-desktop {
+    --padding-grid-page: 55px;
+
+    grid-template-columns:
+      minmax(0, var(--margin-grid-page))
+      minmax(var(--padding-grid-page), var(--padding-grid-page))
+      minmax(0, $content-max-width)
+      minmax(var(--padding-grid-page), var(--padding-grid-page))
+      minmax(0, var(--margin-grid-page));
+  }
+}
+
+@mixin grid-content {
+  --column-grid: 2;
+  --column-gap: 20px;
+  --column-size: 1fr;
+
+  display: grid;
+  column-gap: var(--column-gap);
+
+  grid-template-columns: repeat(var(--column-grid), var(--column-size));
+
+  @include on-tablet {
+    --column-grid: 6;
+    --column-gap: 30px;
+    --column-size: 90px;
+
+    grid-template-columns: repeat(
+      var(--column-grid),
+      minmax(var(--column-size), 1fr)
+    );
+  }
+
+  @include on-desktop {
+    --column-grid: 12;
+    --column-size: 70px;
+
+    grid-template-columns: repeat(var(--column-grid), var(--column-size));
   }
 }
 
@@ -129,7 +221,7 @@
 
   @if $desktop {
     @include on-desktop {
-      padding: $desktop-s;
+      padding: $desktop;
     }
   }
 }
