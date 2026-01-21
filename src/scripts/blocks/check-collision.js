@@ -27,6 +27,11 @@ function isColliding(rect1, rect2) {
 
 function checkCollision() {
   const deactivators = document.querySelectorAll(deactivatorSelector);
+  const menuOpen = document.querySelector('.menu');
+
+  if (menuOpen.classList.contains('menu--active')) {
+    return;
+  }
 
   movingElements.forEach((mover) => {
     const moverRect = mover.getBoundingClientRect();

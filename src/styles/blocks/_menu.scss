@@ -1,20 +1,18 @@
 .menu {
-  height: 0;
+  z-index: 101;
+  width: 100%;
+  position: absolute;
+  display: grid;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: transform $my-duration ease;
   overflow: hidden;
-  grid-column: 1 / -1;
-  position: relative;
-  display: none;
-
-  transition: height 3s ease;
+  background-color: $bg-menu;
 
   &--active {
-    z-index: 101;
-    display: grid;
     position: fixed;
-    top: 0;
-    height: auto;
-    width: 100%;
-    background-color: $bg-menu;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   &-bg--active {
