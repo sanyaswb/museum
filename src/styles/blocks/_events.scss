@@ -138,10 +138,14 @@
 
     @include on-tablet {
       height: 390px;
+
+      grid-column: 2 / -2;
     }
 
     @include on-desktop {
       height: 550px;
+
+      grid-column: 1 / -1;
     }
 
     @include background-config(url(../images/events/events-bg.jpg));

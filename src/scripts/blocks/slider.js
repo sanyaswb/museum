@@ -10,22 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const images = [
     {
       class: 'gallery__image--1',
-      src: './src/images/gallery/gallery-img-1.jpg',
+      src: 'src/images/gallery/gallery-img-1.jpg',
       alt: 'image painting 1',
     },
     {
       class: 'gallery__image--2',
-      src: './src/images/gallery/gallery-img-2.jpg',
+      src: 'src/images/gallery/gallery-img-2.jpg',
       alt: 'image painting 2',
     },
     {
       class: 'gallery__image--3',
-      src: './src/images/gallery/gallery-img-3.jpg',
+      src: 'src/images/gallery/gallery-img-3.jpg',
       alt: 'image painting 3',
     },
     {
       class: 'gallery__image--4',
-      src: './src/images/gallery/gallery-img-4.jpg',
+      src: 'src/images/gallery/gallery-img-4.jpg',
       alt: 'image painting 4',
     },
   ];
