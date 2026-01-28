@@ -28,14 +28,18 @@
 
   &__content {
     @include on-desktop {
-      grid-template-rows: 600px 360px;
-      row-gap: 30px;
+      display: none;
     }
-  }
 
-  &__slider {
-    grid-column: 1 / -1;
-    width: 100%;
+    &--grid {
+      display: none;
+
+      @include on-desktop {
+        display: grid;
+        grid-template-rows: 600px 360px;
+        row-gap: 30px;
+      }
+    }
   }
 
   &__image {

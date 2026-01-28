@@ -13,8 +13,3 @@ backstop_data
 dist
 .cache
 .parcel-cache
-
-# Engine
-convert-fonts.js
-import-fonts.js
-scss-generate.js
