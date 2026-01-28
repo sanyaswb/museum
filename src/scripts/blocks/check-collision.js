@@ -1,16 +1,26 @@
 'use strict';
 
-const movingElements = document.querySelectorAll('.button-menu__item');
+const movingElements = document.querySelectorAll(
+  '.button-menu__item, .button-scroll-top',
+);
 
 const triggers = [
   {
     selector: 'h1, h2, h3, h4, li, p, .logo',
     activeClass: 'button-menu__item--active-2',
     target: '.button-menu',
+    moverSelector: '.button-menu__item',
   },
   {
     selector: '.subscribe',
     activeClass: 'button-menu__item--active',
+    moverSelector: '.button-menu__item',
+  },
+
+  {
+    selector: '.subscribe',
+    activeClass: 'button-scroll-top--collision',
+    moverSelector: '.button-scroll-top',
   },
 ];
 
@@ -29,13 +39,12 @@ function checkCollision() {
   const deactivators = document.querySelectorAll(deactivatorSelector);
   const menuOpen = document.querySelector('.menu');
 
-  if (menuOpen.classList.contains('menu--active')) {
+  if (menuOpen && menuOpen.classList.contains('menu--active')) {
     return;
   }
 
   movingElements.forEach((mover) => {
     const moverRect = mover.getBoundingClientRect();
-
     let isBlocked = false;
 
     deactivators.forEach((section) => {
@@ -47,6 +56,10 @@ function checkCollision() {
     });
 
     triggers.forEach((trigger) => {
+      if (trigger.moverSelector && !mover.matches(trigger.moverSelector)) {
+        return;
+      }
+
       const targetElement = trigger.target
         ? document.querySelector(trigger.target)
         : mover;

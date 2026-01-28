@@ -111,6 +111,46 @@
       }
     }
   }
+
+  &-scroll-top {
+    z-index: 3;
+    grid-column: 3 / 4;
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $bg-menu;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    place-self: end;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition:
+      opacity $my-duration,
+      transform $my-duration,
+      visibility $my-duration;
+
+    &__icon {
+      fill: $bg-menu;
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    &--collision {
+      border: 1px solid white;
+
+      .button-scroll-top__icon {
+        fill: white;
+      }
+    }
+  }
 }
 
 .section-viewer {
@@ -189,4 +229,8 @@
     background-color: $bg-button-1;
     transform: scale(1.4);
   }
+}
+
+.swiper-pagination {
+  z-index: 0 !important;
 }

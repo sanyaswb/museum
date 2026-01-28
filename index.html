@@ -1,7 +1,7 @@
 <!doctype html>
 <html
   lang="en"
-  class="page page-hidden"
+  class="page"
 >
   <head>
     <meta charset="UTF-8" />
@@ -25,7 +25,7 @@
     ></script>
   </head>
   <body class="body grid-page">
-    <aside class="menu grid">
+    <nav class="menu grid">
       <div class="menu__content">
         <div class="menu__button-shadow"></div>
         <div class="menu__nav">
@@ -50,7 +50,7 @@
           <ul class="menu__nav-list menu__nav-list--2">
             <li>
               <a
-                href="#about-us-nav"
+                href="#"
                 class="nav__link"
               >
                 Про Нас
@@ -98,11 +98,28 @@
           </p>
         </div>
       </div>
-    </aside>
+    </nav>
+
+    <a
+      href="#"
+      class="button-scroll-top"
+    >
+      <svg
+        width="10"
+        height="12"
+        viewBox="0 0 10 12"
+        class="button-scroll-top__icon icon-arrow"
+      >
+        <path
+          d="M5 0L0 5L0.705 5.705L4.5 1.915V12H5.5V1.915L9.295 5.705L10 5L5 0Z"
+        />
+      </svg>
+    </a>
 
     <header
       data-title="Головна"
       class="page-section header grid"
+      id="header"
     >
       <a
         href="##"
@@ -172,6 +189,7 @@
     <section
       data-title="Події"
       class="page-section events grid"
+      id="events-nav"
     >
       <h2 class="events__title">Актуальні події</h2>
       <div class="events__content grid-content">
@@ -232,6 +250,7 @@
     <section
       data-title="Галерея"
       class="page-section gallery"
+      id="gallery-nav"
     >
       <h2 class="gallery__title">Галерея</h2>
       <div class="gallery__content">
@@ -327,6 +346,7 @@
     <footer
       data-title="Контакти"
       class="page-section footer"
+      id="contacts-nav"
     >
       <div class="footer__content grid-content">
         <div class="footer__icons">
@@ -470,7 +490,7 @@
         <ul class="footer__nav-list footer__nav-list--2">
           <li>
             <a
-              href="#about-us-nav"
+              href="#"
               class="nav__link"
             >
               Про Нас
